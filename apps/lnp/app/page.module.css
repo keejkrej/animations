@@ -1,0 +1,159 @@
+.page {
+  position: relative;
+}
+
+.track {
+  position: relative;
+  height: 400vh;
+  width: 100%;
+}
+
+.scene {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(148, 163, 184, 0.18) 0%, transparent 45%),
+    radial-gradient(ellipse at 80% 80%, rgba(203, 213, 225, 0.22) 0%, transparent 45%),
+    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  z-index: 1;
+}
+
+.svgBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.title {
+  position: absolute;
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.title h1 {
+  font-size: clamp(1.1rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #1e293b;
+}
+
+.title p {
+  font-size: clamp(0.7rem, 1.4vw, 0.9rem);
+  opacity: 0.7;
+  margin-top: 0.2rem;
+  color: #475569;
+}
+
+.labelSlot {
+  position: absolute;
+  right: 2vw;
+  top: 18vh;
+  width: min(20vw, 260px);
+  z-index: 10;
+}
+
+.stageLabel {
+  position: absolute;
+  inset: 0;
+  padding: 0.9rem 1.1rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+}
+
+.stageLabel h2 {
+  font-size: clamp(0.8rem, 1.6vw, 1.05rem);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: #0f172a;
+}
+
+.stageLabel p {
+  font-size: clamp(0.68rem, 1.2vw, 0.88rem);
+  line-height: 1.55;
+  color: #475569;
+}
+
+.progressWrap {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 36vh;
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 2px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.progressBar {
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(180deg, #64748b, #0ea5e9);
+  border-radius: 2px;
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  opacity: 0.6;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #64748b;
+  z-index: 10;
+}
+
+.scrollHint svg {
+  width: 20px;
+  height: 20px;
+  animation: bounce 1.8s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+@media (max-width: 900px) {
+  .labelSlot {
+    right: 50%;
+    top: auto;
+    bottom: 10vh;
+    transform: translateX(50%);
+    width: min(86vw, 360px);
+  }
+
+  .stageLabel {
+    padding: 0.85rem 1rem;
+  }
+
+  .progressWrap {
+    right: 0.75rem;
+    height: 28vh;
+  }
+}
